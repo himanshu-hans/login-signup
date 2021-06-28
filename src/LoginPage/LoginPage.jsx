@@ -15,7 +15,6 @@ function LoginPage() {
     const dispatch = useDispatch();
     const location = useLocation();
 
-    // reset login status
     useEffect(() => { 
         dispatch(userActions.logout()); 
     }, []);
@@ -30,7 +29,6 @@ function LoginPage() {
 
         setSubmitted(true);
         if (username && password) {
-            // get return url from location state or default to home page
             const { from } = location.state || { from: { pathname: "/" } };
             dispatch(userActions.login(username, password, from));
         }
